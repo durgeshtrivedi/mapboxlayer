@@ -27,6 +27,8 @@
 		7E0E473822C0C095001D6900 /* MyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E0E473722C0C095001D6900 /* MyView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7EC1E5AC22C24F78003A88BB /* Mapbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC1E5AB22C24F78003A88BB /* Mapbox.framework */; };
 		7EC1E5AD22C24F83003A88BB /* Mapbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7EC1E5AB22C24F78003A88BB /* Mapbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7EC1E5AF22C261A8003A88BB /* CustomTriangleStyleLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E5AE22C261A8003A88BB /* CustomTriangleStyleLayer.m */; };
+		7EC1E5B322C9D98A003A88BB /* gistfile1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC1E5B222C9D98A003A88BB /* gistfile1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -74,6 +76,10 @@
 		7E0E473522C0BD49001D6900 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7E0E473722C0C095001D6900 /* MyView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyView.m; sourceTree = "<group>"; };
 		7EC1E5AB22C24F78003A88BB /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = ../../Mapbox.framework; sourceTree = "<group>"; };
+		7EC1E5AE22C261A8003A88BB /* CustomTriangleStyleLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomTriangleStyleLayer.m; sourceTree = "<group>"; };
+		7EC1E5B022C261D9003A88BB /* CustomTriangleStyleLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomTriangleStyleLayer.h; sourceTree = "<group>"; };
+		7EC1E5B122C9D989003A88BB /* MapboxLayer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapboxLayer-Bridging-Header.h"; sourceTree = "<group>"; };
+		7EC1E5B222C9D98A003A88BB /* gistfile1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = gistfile1.swift; path = "../../../../../Downloads/06abe735c70af9f55e359cae6729bfe3-42e36bcecea23b855b2530b980d2aa90f902eb13/gistfile1.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,9 @@
 		079E854E212499EE00524B02 = {
 			isa = PBXGroup;
 			children = (
+				7EC1E5B022C261D9003A88BB /* CustomTriangleStyleLayer.h */,
+				7EC1E5AE22C261A8003A88BB /* CustomTriangleStyleLayer.m */,
+				7EC1E5B222C9D98A003A88BB /* gistfile1.swift */,
 				07D2536B2124FBE700BC5DC5 /* main.m */,
 				07D2536D2124FBE800BC5DC5 /* ViewController.h */,
 				07D2536E2124FBE800BC5DC5 /* ViewController.m */,
@@ -109,6 +118,7 @@
 				7E0E471E22C0BCD5001D6900 /* shaders */,
 				079E8558212499EE00524B02 /* Products */,
 				079E85812124CD6900524B02 /* Frameworks */,
+				7EC1E5B122C9D989003A88BB /* MapboxLayer-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +195,7 @@
 				TargetAttributes = {
 					079E8556212499EE00524B02 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -250,7 +261,9 @@
 				07D253742124FBE800BC5DC5 /* main.m in Sources */,
 				7E0E472D22C0BD01001D6900 /* Framebuffer.c in Sources */,
 				07D253762124FBE800BC5DC5 /* ViewController.m in Sources */,
+				7EC1E5AF22C261A8003A88BB /* CustomTriangleStyleLayer.m in Sources */,
 				07D253712124FBE800BC5DC5 /* CustomStyleLayer.m in Sources */,
+				7EC1E5B322C9D98A003A88BB /* gistfile1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,7 +404,9 @@
 		079E856E212499EF00524B02 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 265UFUW5H2;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
@@ -401,6 +416,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com..durgesh.mapbox.MapCustomLayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapboxLayer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -408,7 +426,9 @@
 		079E856F212499EF00524B02 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 265UFUW5H2;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
@@ -418,6 +438,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com..durgesh.mapbox.MapCustomLayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MapboxLayer-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

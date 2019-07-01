@@ -8,7 +8,8 @@
 
 #import "ViewController.h"
 #import "CustomStyleLayer.h"
-
+#import "CustomTriangleStyleLayer.h"
+#import  "MapboxLayer-Swift.h"
 
 @interface ViewController () <MGLMapViewDelegate> {
     MGLMapView * _mapView;
@@ -29,7 +30,7 @@
     mapView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [mapView setMinimumZoomLevel:2];
     
-    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(37.562984, -122.514426)
+    [mapView setCenterCoordinate:CLLocationCoordinate2DMake(55, 36)
         zoomLevel:14
         animated:NO];
     
@@ -47,11 +48,18 @@
         {37.563391708549425, -122.51309394836426},
         {37.56410183312965, -122.51467645168304}
     };
-
+    
     CustomStyleLayer *layer = [[CustomStyleLayer alloc]
                                 initWithIdentifier:@"custom_triangle"
                                 coordinateQuad:quad];
 
-    [mapView.style addLayer:layer];
+     CustomTriangleStyleLayer *layer1 = [[CustomTriangleStyleLayer alloc] initWithIdentifier:@"mbx-custom"];
+   // [mapView.style addLayer:layer];
+    [mapView.style addLayer:layer1];
+    
+    GliderLayer *glidelayer = [[GliderLayer alloc] initWithIdentifier: @"glidelayer-custom"];
+    [mapView.style addLayer: glidelayer];
+    
+    
 }
 @end
